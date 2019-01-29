@@ -4,6 +4,8 @@ import com.example.demo.domain.City;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CityDao {
     /**
@@ -12,4 +14,8 @@ public interface CityDao {
      * @param cityName 城市名
      */
     City findByName(@Param("cityName") String cityName);
+    List<City> findAll();
+    void insert(City city);
+    void update(Long id);
+    void delete(Long id);
 }

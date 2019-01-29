@@ -6,6 +6,8 @@ import com.example.demo.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class CityServiceImpl implements CityService {
@@ -13,5 +15,25 @@ public class CityServiceImpl implements CityService {
     private CityDao cityDao;
     public City findCityByName(String cityName) {
         return cityDao.findByName(cityName);
+    }
+
+    @Override
+    public List<City> findAll() {
+        return cityDao.findAll();
+    }
+
+    @Override
+    public void insert(City city) {
+        cityDao.insert(city);
+    }
+
+    @Override
+    public void update(Long id) {
+        cityDao.update(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        cityDao.delete(id);
     }
 }

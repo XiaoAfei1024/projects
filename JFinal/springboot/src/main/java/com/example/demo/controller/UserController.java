@@ -15,14 +15,19 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/getUsers")
+    @RequestMapping(value = "/getUsers")
     public List<User> getUser() {
         List<User> users = userService.findByUserAll();
         return users;
     }
 
+    @RequestMapping(value = "/getUser/{id}")
+    public User getOneUser(@PathVariable("id") Long id) {
+        return userService.findByUserOne(id);
+    }
+
     @RequestMapping("/add")
-    public void save(User user){
+    public void save(User user) {
         userService.insertUser(user);
     }
 
@@ -30,6 +35,7 @@ public class UserController {
     public void update(User user) {
         userService.updateUser(user);
     }
+
     @RequestMapping(value = "/delete/{id}")
     public void delete(@PathVariable("id") Long id) {
         userService.deleteUser(id);
