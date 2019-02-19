@@ -14,11 +14,11 @@
 		id, province_id, city_name, description
 	</sql>
 
-    <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String">
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
         from city
-        where city_name = #{cityName}
+        where id = #{id}
     </select>
 
     <select id="findAll" resultMap="BaseResultMap">

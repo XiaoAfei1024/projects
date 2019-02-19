@@ -13,8 +13,8 @@ import java.util.List;
 public class CityServiceImpl implements CityService {
     @Autowired
     private CityDao cityDao;
-    public City findCityByName(String cityName) {
-        return cityDao.findByName(cityName);
+    public City findCityById(int id) {
+        return cityDao.findById(id);
     }
 
     @Override

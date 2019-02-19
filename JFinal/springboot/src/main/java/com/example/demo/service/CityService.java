@@ -5,7 +5,7 @@ import com.example.demo.domain.City;
 import java.util.List;
 
 public interface CityService {
-    City findCityByName(String cityName);
+    City findCityById(int id);
     List<City> findAll();
     void insert(City city);
     void update(Long id);

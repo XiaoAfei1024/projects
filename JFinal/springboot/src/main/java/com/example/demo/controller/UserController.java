@@ -41,4 +41,8 @@ public class UserController {
         userService.deleteUser(id);
     }
 
+    @RequestMapping(value = "/insert")
+    public void insert(User user) {
+        userService.insertUser(user);
+    }
 }

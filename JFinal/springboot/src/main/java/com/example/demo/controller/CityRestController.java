@@ -3,10 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.domain.City;
 import com.example.demo.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class CityRestController {
@@ -14,7 +13,22 @@ public class CityRestController {
     private CityService cityService;
 
     @RequestMapping(value = "/city", method = RequestMethod.GET)
-    public City findOneCity(@RequestParam(value = "cityName", required = true) String cityName) {
-        return cityService.findCityByName(cityName);
+    public City findOneCity(@RequestParam(value = "id", required = true) int id) {
+        return cityService.findCityById(id);
+    }
+
+    @RequestMapping("/city/findAll")
+    public List<City> findAll() {
+        return cityService.findAll();
+    }
+
+    @RequestMapping("/city/insert")
+    public void insert(City city) {
+        cityService.insert(city);
+    }
+
+    @RequestMapping("/city/delete/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        cityService.delete(id);
     }
 }
