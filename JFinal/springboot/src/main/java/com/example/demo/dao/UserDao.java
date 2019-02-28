@@ -3,10 +3,11 @@ package com.example.demo.dao;
 import com.example.demo.domain.User;
 import com.example.demo.enums.UserSexEnum;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 
 import java.util.List;
-@Mapper
+@Repository
 public interface UserDao {
     @Select("SELECT * FROM users")
     @Results({

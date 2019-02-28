@@ -3,9 +3,12 @@ package com.example.demo.controller;
 import com.example.demo.dao.UserDao;
 import com.example.demo.domain.User;
 import com.example.demo.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -16,9 +19,12 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = "/getUsers")
-    public List<User> getUser() {
+    public PageInfo<User> getUser(@RequestParam(defaultValue = "1",value = "pageNum") Integer pageNum) {
+        PageHelper.startPage(pageNum,5);//  用来设置页面的位置和展示的数据条目数
         List<User> users = userService.findByUserAll();
-        return users;
+        PageInfo<User> userPageInfo = new PageInfo<>(users);
+
+        return userPageInfo;
     }
 
     @RequestMapping(value = "/getUser/{id}")
