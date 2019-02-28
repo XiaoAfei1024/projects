@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springwebflux:war">
+    <output-path>$PROJECT_DIR$/springwebflux/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>springwebflux</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="springwebflux-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="springwebflux:war exploded" />
+    </root>
+  </artifact>
+</component>
