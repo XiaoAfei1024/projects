@@ -15,8 +15,8 @@ import java.util.Date;
 @Document
 public class User {
     @Id
-    private String id;
-    @Indexed(unique = true)
+    private String id; // 注解属性id为ID
+    @Indexed(unique = true)  // 注解属性username为索引，并且不能重复
     private String username;
     private String name;
     private String phone;

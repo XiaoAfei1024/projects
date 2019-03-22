@@ -4,6 +4,7 @@ import com.example.springwebflux.dao.UserRepository;
 import com.example.springwebflux.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -18,11 +19,23 @@ public class UserService {
      */
     public Mono<User> save(User user) {
         return userRepository.save(user)
-                .onErrorResume(e ->
-                        userRepository.findByUsername(user.getUsername())
-                            .flatMap(originalUser -> {
-                                user.setId(originalUser.getId());
+                .onErrorResume(e ->  //1. onErrorResume进行错误处理；
+                        userRepository.findByUsername(user.getUsername()) //2.找到username重复的记录；
+                            .flatMap(originalUser -> {   // 4. 由于函数式为User -> Publisher，所以用flatMap。
+                                user.setId(originalUser.getId());  // 3.拿到ID从而进行更新而不是创建；
                                 return userRepository.save(user);
                             }));
+    }
+
+    public Mono<Long> deleteByUsername(String username) {
+        return userRepository.deleteByUsername(username);
+    }
+
+    public Mono<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    public Flux<User> findAll() {
+        return userRepository.findAll();
     }
 }
