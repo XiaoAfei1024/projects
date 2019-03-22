@@ -34,7 +34,7 @@ public class UserController {
     @GetMapping(value = "", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
     public Flux<User> findAll() {
 
-        return this.userService.findAll().delayElements(Duration.ofSeconds(1));
+        return this.userService.findAll().delayElements(Duration.ofSeconds(1));//每个元素都延迟1秒
     }
 
 }
