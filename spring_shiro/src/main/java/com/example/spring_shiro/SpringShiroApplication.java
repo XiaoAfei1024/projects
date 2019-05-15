@@ -1,4 +1,4 @@
-package com.example.springshiro;
+package com.example.spring_shiro;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

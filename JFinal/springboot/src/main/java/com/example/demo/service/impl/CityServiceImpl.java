@@ -13,6 +13,7 @@ import java.util.List;
 public class CityServiceImpl implements CityService {
     @Autowired
     private CityDao cityDao;
+    @Override
     public City findCityById(int id) {
         return cityDao.findById(id);
     }
