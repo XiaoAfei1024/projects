@@ -4,6 +4,8 @@ import com.example.demo.domain.User;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 
+import java.util.Random;
+
 /**
  * @Author Liao Feng
  * @Description //TODO
