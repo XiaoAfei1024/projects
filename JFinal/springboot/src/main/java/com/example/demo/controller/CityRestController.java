@@ -2,11 +2,13 @@ package com.example.demo.controller;
 
 import com.example.demo.domain.City;
 import com.example.demo.service.CityService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Api(tags = "城市相关")
 @RestController
 public class CityRestController {
     @Autowired
