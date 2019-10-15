@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class ShiroUtil {
     private static final String ENCRYPT_ALGORITHM = "md5";
-    private  static final int HASH_ITERATIONS = 1;
+    private  static final int HASH_ITERATIONS = 2;
 
     public static String encryptPassword(User user) {
         ByteSource salt = ByteSource.Util.bytes(user.getUserName());
@@ -24,7 +24,7 @@ public class ShiroUtil {
     public static void main(String[] args) {
         User user = new User();
         user.setUserName("test");
-        user.setPassWord("666666");
+        user.setPassWord("123");
         System.out.println(encryptPassword(user));
     }
 }
