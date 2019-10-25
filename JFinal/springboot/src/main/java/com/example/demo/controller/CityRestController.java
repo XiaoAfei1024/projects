@@ -16,8 +16,6 @@ public class CityRestController {
     @Autowired
     private CityService cityService;
 
-    @Autowired
-    private MyExecutor executor;
 
     @RequestMapping(value = "/city", method = RequestMethod.GET)
     public City findOneCity(@RequestParam(value = "id", required = true) int id) {
@@ -39,10 +37,5 @@ public class CityRestController {
         cityService.delete(id);
     }
 
-    @GetMapping("/sleep")
-    public void sleep() {
-        for (int i = 0; i < 1000; i++) {
-            executor.sleep();
-        }
-    }
+
 }
