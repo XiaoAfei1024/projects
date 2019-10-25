@@ -20,7 +20,8 @@ public class ExecutorConfig {
     @Bean("myExecutor")
     public Executor asyncPromiseExecutor() {
         ThreadPoolTaskExecutor executor = new VisiableThreadPoolTaskExecutor();
-        //核心线程数
+        // 核心线程数：当线程数小于核心线程数，线程池创建线程
+        // 核心线程：一直存活，即使没有任务
         executor.setCorePoolSize(50);
         //线程池最大线程数
         //(如果线程数已等于maxPoolSize，且任务队列已满，则已超出线程池的处理能力，线程池会拒绝处理任务而抛出异常。)
@@ -28,11 +29,16 @@ public class ExecutorConfig {
         //线程空闲时间
         //当线程空闲时间达到keepAliveTime，该线程会退出，直到线程数量等于corePoolSize
         executor.setKeepAliveSeconds(0);
-        //任务队列容量
+        //任务阻塞队列容量
         executor.setQueueCapacity(150);
         //配置线程池中的线程的名称前缀
         executor.setThreadNamePrefix("my-thread-");
-        //不在新线程中执行任务，而是有调用者所在的线程来执行
+
+        // 线程池阻塞队列满之后的任务处理策略，有AbortPolicy，DiscardPolicy，DiscardOldestPolicy，CallerRunsPolicy，自定义
+        // AbortPolicy，默认策略，队列满丢掉任务并抛出异常
+        // DiscardPolicy，队列满丢掉任务，不抛出异常
+        // DiscardOldestPolicy，队列满丢掉最老的任务，不抛出任务
+        // CallerRunsPolicy，队列满，由调用线程来跑（这么干一般是主线程...）
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         //执行初始化
         executor.initialize();
