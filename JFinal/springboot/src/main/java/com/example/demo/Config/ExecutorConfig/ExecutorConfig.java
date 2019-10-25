@@ -1,4 +1,4 @@
-package com.example.demo.Config;
+package com.example.demo.Config.ExecutorConfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,9 +15,9 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Configuration
 public class ExecutorConfig {
-    @Bean
+    @Bean("myExecutor")
     public Executor asyncPromiseExecutor() {
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        ThreadPoolTaskExecutor executor = new VisiableThreadPoolTaskExecutor();
         //核心线程数
         executor.setCorePoolSize(50);
         //线程池最大线程数
