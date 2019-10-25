@@ -39,10 +39,11 @@ public class PayController {
 
 
     @GetMapping("/testAsync")
-    public void testAsync() {
+    public String testAsync() {
         for (int i = 0; i <10 ; i++) {
             executor.testAsync();
         }
+        return"全部完成";
     }
     @GetMapping("/sleep")
     public String sleep() {
