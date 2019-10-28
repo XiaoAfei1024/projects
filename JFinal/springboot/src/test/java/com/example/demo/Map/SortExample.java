@@ -2,10 +2,7 @@ package com.example.demo.Map;
 
 import org.junit.Test;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -30,6 +27,11 @@ public class SortExample {
         unsortMap.put("m", 2);
         unsortMap.put("f", 9);
         System.out.println(unsortMap);
+
+        //利用TreeMap数据结构特性(顺序排序)
+        TreeMap treeMap = new TreeMap(unsortMap);
+        System.out.println(treeMap);
+
 
         Map<String, Integer> result1 = unsortMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
