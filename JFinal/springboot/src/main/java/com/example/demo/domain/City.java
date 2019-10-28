@@ -22,6 +22,8 @@ public class City {
     private String description;
 
 
+
+
     public int getId() {
         return id;
     }
