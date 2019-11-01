@@ -27,6 +27,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+        <!-- 繁体转换 -->
+        <dependency>
+            <groupId>org.nlpcn</groupId>
+            <artifactId>nlp-lang</artifactId>
+            <version>1.7.7</version>
+        </dependency>
         <!-- shiro -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
