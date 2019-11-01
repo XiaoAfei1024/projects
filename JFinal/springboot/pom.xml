@@ -45,6 +45,11 @@
             <artifactId>shiro-redis</artifactId>
             <version>3.1.0</version>
         </dependency>
+        <!--集成redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
 
         <!-- Spring Boot thymeleaf模板依赖 -->
         <dependency>
@@ -137,6 +142,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.0</version>
+            <scope>compile</scope>
         </dependency>
 
 
