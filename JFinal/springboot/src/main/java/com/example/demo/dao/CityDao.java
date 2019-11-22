@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 import java.util.List;
+import java.util.Map;
 
 @Repository    //用来注解接口
 @Mapper
@@ -22,4 +23,6 @@ public interface CityDao {
     void insert(City city);
     void update(Long id);
     void delete(Long id);
+    Map<String, Object> getId();
+
 }

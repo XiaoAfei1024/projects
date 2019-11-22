@@ -2,6 +2,8 @@ package com.example.demo.Collection;
 
 import org.junit.Test;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -82,6 +84,25 @@ public class ArrayDequeTest {
         System.out.println(queue);
         for (int i = 0; i < queue.size(); i++) {
             System.out.println(queue.poll() + " , ");
+        }
+    }
+
+    @Test
+    public void test1() throws ParseException, InterruptedException {
+//如果想比较日期则写成"yyyy-MM-dd"就可以了
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String t1 = "2012-11-30 16:11:16";
+        String t2 = "2012-11-30 16:18:18";
+        //将字符串形式的时间转化为Date类型的时间
+        Date a = new Date();
+        Thread.sleep(1000);
+        Date b = new Date();
+        //Date类的一个方法，如果a早于b返回true，否则返回false
+        if (a.before(b)) {
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+
         }
     }
 }

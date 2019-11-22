@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -6,7 +7,20 @@ import java.util.function.Predicate;
 import static java.util.stream.Collectors.toList;
 
 public class PersonLambda {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
+        Date a = new Date();
+        Thread.sleep(1000);
+        Date b = new Date();
+        //Date类的一个方法，如果a早于b返回true，否则返回false
+        if (a.before(b)) {
+            System.out.println(true);
+        } else {
+            System.out.println(false);
+
+        }
+
+
         List<Person> javaProgrammers = new ArrayList<Person>() {
             {
                 add(new Person("Elsdon", "Jaycob", "Java programmer", "male", 43, 2000));

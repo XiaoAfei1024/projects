@@ -26,6 +26,9 @@
         <include refid="Base_Column_List"/>
         from city
     </select>
+    <select id="getId" resultType="java.util.Map">
+        SELECT LAST_INSERT_ID()
+    </select>
 
     <insert id="insert">
         INSERT INTO city (city_name,description,province_id)
