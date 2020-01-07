@@ -6,6 +6,6 @@ package com.example.demo.dao;
  * @Date 2019/5/15/015 14:40
  * @Version 1.0
  */
-public class RoleDao {
+public interface RoleDao {
 
 }
